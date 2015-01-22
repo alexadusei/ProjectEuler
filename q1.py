@@ -10,15 +10,10 @@
 # Author:      Alex Adusei
 #-------------------------------------------------------------------------------
 
-import time
+sumMultiples = 0
 
-def main():
-    sumMultiples = 0
+for i in range(1000):
+    if i % 3 == 0 or i % 5 == 0:
+        sumMultiples += i
 
-    for i in range(1000):
-        if i % 3 == 0 or i % 5 == 0:
-            sumMultiples += i
-
-    print sumMultiples
-
-main() #Answer: 233168
+print sumMultiples
