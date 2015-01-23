@@ -21,8 +21,8 @@ def isPalindrome(string):
 
 x1, x2 = 0, 0
 
-for i in range(1, 1000):
-    for k in range(1, 1000):
+for i in range(100, 1000):
+    for k in range(100, 1000):
         if isPalindrome(str(i*k)) and (i*k) > (x1*x2):
             x1, x2 = i, k
 
