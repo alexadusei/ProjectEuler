@@ -10,10 +10,9 @@
 #-------------------------------------------------------------------------------
 
 EXPONENT = 1000
-value = str(2 ** EXPONENT)
 valSum = 0
 
-for i in range(len(value)):
-    valSum += int(value[i])
+for i in (str(2 ** EXPONENT)):
+    valSum += int(i)
 
 print valSum
