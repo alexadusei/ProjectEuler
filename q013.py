@@ -11,7 +11,7 @@
 
 # Helper function to read large number from textfile
 def readNums():
-    file = open("q13.txt")
+    file = open("q013.txt")
     nums = []
 
     for line in file:
