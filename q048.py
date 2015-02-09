@@ -9,9 +9,4 @@
 
 # Author:      Alex Adusei
 #-------------------------------------------------------------------------------
-sum = 0
-
-for i in range(1, 1000):
-    sum += i**i
-
-print "\n", str(sum)[-10:]
+print str(sum([i**i for i in range(1, 1000)]))[-10:]
