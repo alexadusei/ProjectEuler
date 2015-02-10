@@ -19,8 +19,6 @@ while n2 <= 4000000:
     if n2 % 2 == 0:
         sumEvenFib += n2
 
-    temp = n1
-    n1 = n2
-    n2 = temp + n2
+    n1, n2 = n2, (n1+n2)
 
 print sumEvenFib
