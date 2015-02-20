@@ -1,38 +1,27 @@
 module Q003 where
 
--- Auxiliary function to isPrime
-hasFactorInRange :: Integer -> Integer -> Integer -> Bool
-hasFactorInRange n low high
-	| low > high 		= False
-	| mod n low == 0 	= True
-	| otherwise 		= hasFactorInRange n (low+1) high 
+{- 	Name: 	 Largest Prime Factor
 
--- Auxiliary function to primesLeq
-isPrime n 
-	| n <= 1 	= False
-	| otherwise = not (hasFactorInRange n 2 sqrtFloor)
-	where
-	-- sqrtFloor is the square root of n rounded down to an integer
-	-- fromIntegral takes int and changes into integral (float)
-	sqrtFloor = floor (sqrt (fromIntegral n))
+	Purpose: The primes factors of 13195 are 5, 7, 13 and 29.
+			 What is the largest prime factor of the number 600851475143?
 
--- First prime greater than or equal to n
-firstPrimeGeq n
-	| isPrime n = n
-	| otherwise = firstPrimeGeq (n+1)
+	Answer:  6857
 
--- Prime less than or equal to n 
-primesLeq n
-	| n <= 1 	= 0
-	| isPrime n = n
-	| otherwise = primesLeq (n-1)
+	Author: Alex Adusei 
+-}
+
+num = 600851475143 
+
+-- Function that takes value to determine smallest prime factor 
+start n = largestPrimeFactor n (intRoot n)
 
 -- finds smallest factor of n >= f
-smallestFactorStarting n f
-	| mod n f == 0 = f
-	| otherwise = smallestFactorStarting n (f-1)
+largestPrimeFactor n f
+	| (mod n f == 0) && isPrime f = f
+	| otherwise = largestPrimeFactor n (f-1)
 
-greatestPrimeFactor :: Integer -> Integer
-greatestPrimeFactor n
-	| mod n (primesLeq n) == 0 = primesLeq n
-	| otherwise = greatestPrimeFactor(n-1)
+-- Auxiliary function checking if a number is prime
+isPrime :: Integer -> Bool
+isPrime n = null [fact | fact <- [2..(intRoot n)], mod n fact == 0]
+
+intRoot n = floor (sqrt (fromIntegral n))
