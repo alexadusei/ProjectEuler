@@ -13,9 +13,11 @@ module Q003 where
 num = 600851475143 
 
 -- Function that takes value to determine smallest prime factor 
+start :: Integer -> Integer
 start n = largestPrimeFactor n (intRoot n)
 
 -- finds smallest factor of n >= f
+largestPrimeFactor :: Integer -> Integer -> Integer
 largestPrimeFactor n f
 	| (mod n f == 0) && isPrime f = f
 	| otherwise = largestPrimeFactor n (f-1)
@@ -24,4 +26,5 @@ largestPrimeFactor n f
 isPrime :: Integer -> Bool
 isPrime n = null [fact | fact <- [2..(intRoot n)], mod n fact == 0]
 
+intRoot :: Integer -> Integer
 intRoot n = floor (sqrt (fromIntegral n))
